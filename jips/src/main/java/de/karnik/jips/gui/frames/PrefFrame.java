@@ -87,7 +87,7 @@ public class PrefFrame extends BaseSubFrame implements ActionListener,
    */
   private void generateAll() throws JIPSException {
 
-    Icon icon = iconFactory.getIcon(GoogleMaterialDesignIcons.EXTENSION, 64);
+    Icon icon = iconFactory.getIcon(GoogleMaterialDesignIcons.SETTINGS, 64);
 
     if (icon == null) {
       icon = new ImageIcon();

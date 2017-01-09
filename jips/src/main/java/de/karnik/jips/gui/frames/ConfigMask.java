@@ -48,7 +48,7 @@ public class ConfigMask extends BaseSubFrame implements ActionListener {
    * @param name the name of the frame
    */
   public ConfigMask(String name, BaseProcess bp) throws JIPSException {
-    super(Translator.getInstance().getTranslation("plugin_config"), 200, 0);
+    super(Translator.getInstance().getTranslation("plugin_config"), 600, 0);
 
     setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     setLayout(new BorderLayout());
@@ -59,7 +59,7 @@ public class ConfigMask extends BaseSubFrame implements ActionListener {
     ConfigMaskReader cmr = new ConfigMaskReader(baseProcess.getConfiguration("configFile"), baseProcess);
     inputType = cmr.getIt();
 
-    Icon icon = iconFactory.getIcon(GoogleMaterialDesignIcons.SETTINGS, 64);
+    Icon icon = iconFactory.getIcon(GoogleMaterialDesignIcons.EXTENSION, 64);
 
     if (icon == null) {
       icon = new ImageIcon();
@@ -84,8 +84,7 @@ public class ConfigMask extends BaseSubFrame implements ActionListener {
   private JPanel generateMask() {
     JPanel jp = new JPanel(gbl);
 
-    for (int i = 0; i < inputType.size(); i++)
-      addInputItem(jp, inputType.get(i));
+    for (InputType anInputType : inputType) addInputItem(jp, anInputType);
 
     return jp;
   }
@@ -132,11 +131,11 @@ public class ConfigMask extends BaseSubFrame implements ActionListener {
 
   private void okButtonPressed() {
 
-    for (int i = 0; i < inputType.size(); i++) {
+    for (InputType anInputType : inputType) {
 
-      if (inputType.get(i).getId() != null)
-        baseProcess.setConfiguration(inputType.get(i).getId(),
-                inputType.get(i).getValue());
+      if (anInputType.getId() != null)
+        baseProcess.setConfiguration(anInputType.getId(),
+                anInputType.getValue());
     }
     cp = null;
     cancelButtonPressed();
