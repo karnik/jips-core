@@ -1,6 +1,10 @@
 /*
  * JIPS - JIPS Image Processing Software
- * Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+ * Copyright (C)  2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+ *
+ * This file is licensed to you under the MIT license.
+ * See the LICENSE file in the project root for more information.
+ *
  */
 
 package de.karnik.jips.common.config;
@@ -37,21 +41,9 @@ public abstract class JIPSConstants {
    */
   public static final String JIPS_AUTHOR_MAIL = "markus.karnik@gmail.com";
   /**
-   * The JIPS year.
-   */
-  private static final String JIPS_YEAR = "2006 - 2016";
-  /**
    * The JIPS url.
    */
   public static final String JIPS_URL = "http://jips.karnik.de";
-
-  /**
-   * The JIPS welcome message.
-   */
-  public static final String WELCOME_MSG = "JIPS v." + JIPS_VERSION +
-          ", Copyright \u00A9 " + JIPS_YEAR +
-          "  " + JIPS_AUTHOR;
-
   /**
    * The JIPS splash image.
    */
@@ -80,12 +72,10 @@ public abstract class JIPSConstants {
    * The JIPS run menu bar config file.
    */
   public static final String JIPS_RUNMENUBAR_CONFIG = "config/run_menubar.xml";
-
   /**
    * The directory with the JIPS images.
    */
   public static final String JIPS_IMAGE_PATH = "images/";
-
   /**
    * The system file seperator.
    */
@@ -98,20 +88,24 @@ public abstract class JIPSConstants {
    * The system line seperator.
    */
   public static final String SYSTEM_LINE_SEPERATOR = System.getProperty("line.separator");
-
   /**
    * The path for the JIPS log file.
    */
   public static final String JIPS_LOG_FILE = "jips.log";
-
-
   public static final HashMap<String, Integer> KEY_MAP = getKeyMap();
-
   public static final HashMap<String, JIPSMessage> JIPS_MESSAGES = getJIPSMessages();
-
   public static final String[] KNOWN_IMAGE_TYPES = {".jpg", ".png", ".bmp", ".jpeg", ".gif"};
-
   public static final String[] PLUGIN_CATEGORIES = {"ea_menu", "point_menu", "filter_menu", "edge_menu", "fourier_menu"};
+  /**
+   * The JIPS year.
+   */
+  private static final String JIPS_YEAR = "2006 - 2016";
+  /**
+   * The JIPS welcome message.
+   */
+  public static final String WELCOME_MSG = "JIPS v." + JIPS_VERSION +
+          ", Copyright \u00A9 " + JIPS_YEAR +
+          "  " + JIPS_AUTHOR;
 
   /**
    * This class is uninstantiable.
