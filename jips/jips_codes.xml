@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<jips_codes jips-version="@JIPS_VERSION@">
+  <code id="001D">
+    <type>Error</type>
+    <message>Cannot open File: [path]</message>
+    <exception>IOException</exception>
+    <location>de.karnik.common.IO.openLogFile( String path, boolean critical )</location>
+    <desc>The file exists but is a directory rather than a regular file, does not exist but cannot be created, or cannot be opened for any other reason!</desc>
+  </code>
+  <code id="001E">
+    <type>Error</type>
+    <message>Cannot find File: [path]</message>
+    <exception>NullPointerException</exception>
+    <location>de.karnik.common.IO.openLogFile( String path, boolean critical )</location>
+    <desc>There is no file to open.</desc>
+  </code>
+
+  <code id="0025">
+    <type>Warning</type>
+    <message>Cannot write to file: [path]</message>
+    <exception>-</exception>
+    <location>de.karnik.common.IO.writeLogFile( String path, boolean critical )</location>
+    <desc>Check file permissions!</desc>
+  </code>
+  <code id="0026">
+    <type>Warning</type>
+    <message>Cannot find file: [path]</message>
+    <exception>-</exception>
+    <location>de.karnik.common.IO.writeLogFile( String path, boolean critical )</location>
+    <desc>Cannot find logfile. </desc>
+  </code>
+</jips_codes>

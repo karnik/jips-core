@@ -1,0 +1,16 @@
+# IDEA IntelliJ files
+.idea/
+*.iml
+
+# temp build files and directories
+build/
+common/build/
+plugins/build/
+jips/build/
+jips/plugins
+jips.log
+
+.gradle/
+gradle/
+gradlew
+gradlew.bat

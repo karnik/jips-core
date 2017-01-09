@@ -1,0 +1,100 @@
+JIPS CHANGELOG
+==============
+
+Legend
+=======
++ new
+- removed
+~ changed
+
+xx.01.2007 - v.0.0.8
+====================
+
+17.01.2007 - v.0.0.7
+====================
++ improved InputMask
++ added viewer
++ added APPENDIX A
++ added first plugin tests
+~ improved error handling
+~ improved drawing speed on main desktop
+~ many small changes
+
+
+09.11.2006 - v.0.0.6
+====================
++ added xml version control
++ added InputMask to generate dynamic masks for input-values
+  * fully configurable with xml files
+  * pre-implementation for plugin handling
++ added jai libraries for better image handling
++ added raster for main desktops
++ added selection to main desktop
++ added connection-lines
+~ improved msg-handling and added log file
+~ changed from GroupLayout to GridBagLayout
+
+20.10.2006 - v.0.0.5
+====================
++ added first object to paint with connectors
++ added selection area and selection listener to the desktop
++ added new menu bar
++ added MyFont for easier font handling
++ added multi-line textlabels
+~ all path variables (Strings) are now in JIPSConstants.java
+~ more documentation
+~ changed from GridBagLayout to GroupLayout
+~ menus are now xml controlled
+~ improved configuration object (singleton pattern)
+
+
+07.10.2006 - v.0.0.4
+====================
++ added closeabled tabs
++ added the function to create a new project
++ added status bar
++ added BrowserLauncher2 for launching the standard browser
++ added warning message (GOH-Object)
++ added genMenuItem( ... ) to MainMenu for more comfortable generation of menu items
++ added program icon
+~ better layout management
+~ small changes on the splashscreen
+~ fixed FileReader IO-Bug in IO.java
+    * "openTextFile( String path, boolean critical )"
+~ small changes on the about dialog
+~ enabled help and homepage menu items
+~ better exit method
+~ fixed many small bugs
+
+
+28.09.2006 - v.0.0.3
+====================
++ added about dialog
+	* with copyright info for external libs
++ added language preference option
++ added debug-label view
++ added DejaVu font
+~ improved frame handling
+
+20.09.2006 - v.0.0.2
+====================
++ added some preference options
+	* configuration is now saveable
++ added PgsLookAndFeel
++ added enhanced jips error codes
+~ some small enhancements
+~ more documentation with javadoc...
+
+12.09.2006 - v.0.0.1
+====================
++ added look
++ added jdom
++ added first grafical interface + menu
++ added config- and language support
++ added icons
+
+03.09.2006 - v.0.0.0
+====================
++ starting JIPS
+
+

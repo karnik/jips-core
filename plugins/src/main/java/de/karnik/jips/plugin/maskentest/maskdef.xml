@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<process plugin-version="1.0.0" plugin-api-version="@PLUGIN_API_VERSION@" jips-version="@JIPS_VERSION@">
+	<name>maskprocess</name>
+	<defaults>
+		<default id="rb1" value="true" />
+		<default id="rb2" value="false" />
+	</defaults>
+	<inputmask>
+		<input type="label" translate="false" bounds="0,0,2,1" id="label1">
+			<text>Name:</text>
+		</input>
+		<input type="textfield" translate="false" bounds="2,0,4,1" id="name">
+			<text>default</text>
+			<length>10</length>
+			<inputType>string</inputType>
+		</input>
+		<input type="label" translate="false" bounds="0,1,6,1" id="label3">
+			<text>Maske:</text>
+		</input>
+		<input type="textfield" translate="false" bounds="0,2,1,1" id="11">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="1,2,1,1" id="12">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="2,2,1,1" id="13">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="0,3,1,1" id="21">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="1,3,1,1" id="22">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="2,3,1,1" id="23">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="0,4,1,1" id="31">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="1,4,1,1" id="32">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="textfield" translate="false" bounds="2,4,1,1" id="33">
+			<text>default</text>
+			<length>2</length>
+			<inputType>number</inputType>
+		</input>
+		<input type="label" translate="false" bounds="0,7,6,1" id="label4">
+			<text>RadioButtons</text>
+		</input>
+		<input type="radiobutton" translate="false" bounds="0,8,2,1" id="rb1">
+			<text>Radio 1</text>
+			<group>bg1</group>
+		</input>
+		<input type="radiobutton" translate="false" bounds="0,9,2,1" id="rb2">
+			<text>Radio 2</text>
+			<group>bg1</group>
+		</input>
+	</inputmask>
+</process>

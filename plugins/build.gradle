@@ -1,0 +1,92 @@
+/*
+ * JIPS - JIPS Image Processing Software
+ * Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+ */
+
+//
+// PLUGINS
+//
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+// Define plugin list
+def plugins = [
+        [name: "add"],
+        [name: "colorchanger"],
+        [name: "dilatation"],
+        [name: "gauss1d"],
+        [name: "gauss2d"],
+        [name: "input"],
+        [name: "maskentest"],
+        [name: "median"],
+        [name: "output"],
+        [name: "viewer"],
+]
+
+def pluginTargetDir = "../jips/build/plugins/"
+
+jar {
+    // disable general jar task for plugins - this will be done per plugin
+    enabled = false
+}
+
+// Define plugin build tasks
+plugins.each { plugin ->
+    project.task(plugin.name + "Jar", type: Jar, dependsOn: plugin.name + "PropertiesCopy") {
+        classifier plugin.name
+        archiveName = plugin.name + '.jar'
+        destinationDir = file(pluginTargetDir + plugin.name)
+        from(sourceSets.main.output) {
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.class"
+        }
+        from(sourceSets.main.allSource) {
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.png"
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.gif"
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.jpg"
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.jpeg"
+            include "de/karnik/jips/plugin/${plugin.name}/**/*.properties"
+        }
+
+        manifest {
+            attributes "Manifest-Version": 1.0
+            attributes "Implementation-Title": "JIPS Plugin - ${plugin.name}"
+            attributes "JIPS-Version": version
+            attributes "Build-Date": getDate()
+        }
+    }
+
+}
+
+// Define plugin config copy tasks
+plugins.each { plugin ->
+    project.task(plugin.name + "PropertiesCopy", type: Copy) {
+        from sourceSets.main.allSource
+        include "de/karnik/jips/plugin/${plugin.name}/plugin.properties"
+        include "de/karnik/jips/plugin/${plugin.name}/maskdef.xml"
+
+        includeEmptyDirs = false
+
+        eachFile { fileCopyDetails ->
+            fileCopyDetails.path = fileCopyDetails.path.replace("de/karnik/jips/plugin/${plugin.name}/", "")
+        }
+
+        filter(ReplaceTokens, tokens:
+                [
+                        PLUGIN_JAR_NAME   : plugin.name + '.jar',
+                        BUILD_DATE        : getDate(),
+                        JIPS_VERSION      : version,
+                        PLUGIN_API_VERSION: pluginApiVersion
+                ]
+        )
+
+        into pluginTargetDir + plugin.name
+    }
+}
+
+// build als jar plugins
+task buildAllPlugins {
+    plugins.each { plugin -> dependsOn plugin.name + 'Jar' }
+}
+
+// hock into standard flow
+jar.dependsOn buildAllPlugins

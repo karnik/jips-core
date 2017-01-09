@@ -1,0 +1,70 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+/*
+ * JIPS - JIPS Image Processing Software
+ * Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+ */
+
+//
+// JIPS
+//
+
+jar {
+    manifest {
+        attributes 'Manifest-Version': 1.0
+        attributes 'Implementation-Title': 'JIPS Image Processing Software'
+        attributes 'Implementation-Version': version
+        attributes 'Main-Class': 'de.karnik.jips.JIPS'
+        attributes 'SplashScreen-Image': 'images/splash.png'
+        attributes 'Build-Date': getDate()
+    }
+}
+
+task sourcesJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+startScripts.dependsOn sourcesJar
+
+
+processResources {
+    filter(ReplaceTokens, tokens:
+            [
+                    JIPS_VERSION: version
+            ]
+    )
+}
+
+distributions {
+    docs {
+        contents {
+            from(libsDir) {
+                include sourcesJar.archiveName
+            }
+        }
+    }
+}
+
+// copy additional distribution files
+applicationDistribution.from("workspace") {
+    into "workspace"
+}
+
+applicationDistribution.from("build/plugins") {
+    into "plugins"
+}
+
+applicationDistribution.from("doc") {
+    into "doc"
+}
+
+applicationDistribution.from("licences") {
+    into "licences"
+}
+
+

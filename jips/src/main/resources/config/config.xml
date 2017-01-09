@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<!-- JIPS configuration -->
+<jips_config jips-version="@JIPS_VERSION@">
+  <!--
+    #######################################################
+    # Base Config
+    #######################################################
+  -->
+    <!-- Values: de, en -->
+    <lang>de</lang>
+  <workspace>../workspace/</workspace>
+  <plugins>../plugins/</plugins>
+  <!-- Values: NIMBUS_LAF = 0, GTK_LAF = 1, WINDOWS_LAF = 2 -->
+  <laf>2</laf>
+  <!-- Values: size of the desktop raster in pixels, numbers only -->
+  <desktop_raster_size>15</desktop_raster_size>
+  <!-- Values: width of the desktop in pixels, numbers only -->
+  <desktop_width>2000</desktop_width>
+  <!-- Values: height of the desktop in pixels, numbers only -->
+  <desktop_height>2000</desktop_height>
+  <!--
+    #######################################################
+    # Colors
+    #
+    # value :: hexcode between #000000 and #FFFFFF
+    # alpha :: integer between 0 and 255
+    #######################################################
+  -->
+  <select_color alpha="255">#54ACFF</select_color>
+  <select_background_color alpha="20">#54ACFF</select_background_color>
+  <grid_color alpha="255">#AAAAAA</grid_color>
+  <desktop_color alpha="255">#BBBBBB</desktop_color>
+  <!--  <process_color alpha="150">#d87f00</process_color>-->
+  <process_color alpha="150">#ffa800</process_color>
+  <process_button_color alpha="200">#ffa800</process_button_color>
+  <border_color alpha="255">#000000</border_color>
+  <con_color alpha="255">#DEBD09</con_color>
+  <con_color_ready alpha="255">#508E18</con_color_ready>
+  <con_color_busy alpha="255">#FF0000</con_color_busy>
+  <connection_color_inner alpha="255">#FFFFFF</connection_color_inner>
+  <connection_color_outer alpha="255">#000000</connection_color_outer>
+  <plugin_pane_bg_color alpha="255">#BBBBBB</plugin_pane_bg_color>
+</jips_config>
+

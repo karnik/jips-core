@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jpcf version="1.0" jips-version="0.0.7">
+	<project_configuration>
+		<name>Test Project</name>
+		<description> ... </description>
+	</project_configuration>
+	<processes>
+		<process name="">
+		</process>
+	</processes>
+</jpcf>

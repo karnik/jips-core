@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<jips_main_menubar jips-version="@JIPS_VERSION@">
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>new_project</name>
+      <icon>CREATE_NEW_FOLDER</icon>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>open_project</name>
+      <icon>OPEN_IN_NEW</icon>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>save</name>
+      <icon>SAVE</icon>
+  </baritem>
+  <baritem>
+    <typ>Separator</typ>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>undo</name>
+      <icon>UNDO</icon>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>redo</name>
+      <icon>REDO</icon>
+  </baritem>
+  <baritem>
+    <typ>Separator</typ>
+  </baritem>
+  <baritem>
+    <typ>MenuBarToggleItem</typ>
+    <name>grid</name>
+      <icon>GRID_ON</icon>
+  </baritem>
+  <baritem>
+    <typ>Separator</typ>
+  </baritem>
+</jips_main_menubar>

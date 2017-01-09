@@ -1,0 +1,22 @@
+##########################################################################
+# JIPS - JIPS Image Processing Software                                  #
+# Copyright (C) 2006 - 2008  Markus Karnik                               #
+# File: TODO.TXT                                                         #
+##########################################################################
+
+- delete processes and connections
+- improve image handling
+- output to files
+- filter viewer
+- documentation
+- language with plugins
+- determine image formats
+- tooltip with process inforamtion
+- statusbar while executing processes
+- improve connector color handling
+
+
+- keine zwei verbindungen an einem eingang
+- prozesse müssen von beginn an mit startwerten belegt sein
+- setter und getter methoden müssen sicher gemacht werden
+- Iconskalierung vereinheitlichen. Menu und Konsole

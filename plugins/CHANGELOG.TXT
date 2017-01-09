@@ -1,0 +1,3 @@
+- version zentral verwalten
+- finish icons
+- splash

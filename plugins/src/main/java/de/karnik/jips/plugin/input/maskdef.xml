@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<process plugin-version="1.0.0" plugin-api-version="@PLUGIN_API_VERSION@" jips-version="@JIPS_VERSION@">
+  <name>maskprocess</name>
+  <defaults>
+    <default id="filepath" value="" />
+  </defaults>
+  <inputmask>
+    <input type="label" translate="false" bounds="0,0,6,1" id="label1">
+      <text>Name:</text>
+    </input>
+    <input type="textfield" translate="false" bounds="0,1,6,1" id="name">
+      <text>default</text>
+      <length>15</length>
+      <inputType>string</inputType>
+    </input>
+    <input type="label" translate="false" bounds="0,2,6,1" id="label2">
+      <text>Datei wählen:</text>
+    </input>
+    <input type="filechooser" translate="false" bounds="0,3,6,1" id="filepath">
+      <text>default</text>
+      <length>10</length>
+      <inputType>string</inputType>
+    </input>
+  </inputmask>
+</process>

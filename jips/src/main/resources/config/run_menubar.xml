@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<jips_main_menubar jips-version="@JIPS_VERSION@">
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>project_run</name>
+      <icon>PLAY_ARROW</icon>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>project_pause</name>
+      <icon>PAUSE</icon>
+  </baritem>
+  <baritem>
+    <typ>MenuBarItem</typ>
+    <name>project_stop</name>
+      <icon>STOP</icon>
+  </baritem>
+</jips_main_menubar>

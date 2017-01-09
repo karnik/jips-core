@@ -1,0 +1,62 @@
+/*
+ * JIPS - JIPS Image Processing Software
+ * Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+ */
+
+allprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    group = 'de.karnik.jips'
+
+    version = '0.0.15'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+project.ext {
+    pluginApiVersion = '1.0.0'
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+project(':jips') {
+    apply plugin: 'application'
+
+    mainClassName = 'de.karnik.jips.JIPS'
+
+    dependencies {
+        compile 'commons-cli:commons-cli:1.3.1'
+        compile 'commons-io:commons-io:2.5'
+        compile 'jdom:jdom:1.0'
+        compile project(':plugins')
+    }
+}
+
+project(':plugins') {
+    dependencies {
+        compile project(':common')
+    }
+}
+
+project(':common') {
+    dependencies {
+        compile 'commons-cli:commons-cli:1.3.1'
+        compile 'jdom:jdom:1.0'
+        compile 'org.projectlombok:lombok:1.16.12'
+        compile 'com.github.jiconfont:jiconfont-swing:1.0.1'
+        compile 'com.github.jiconfont:jiconfont-google_material_design_icons:2.2.0.1'
+    }
+}
+
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmmss')
+    return formattedDate
+}

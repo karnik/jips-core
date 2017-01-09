@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ JIPS - JIPS Image Processing Software
+  ~ Copyright (C) 2006 - 2017  Markus Karnik (markus.karnik@gmail.com)
+  -->
+
+<process plugin-version="1.0.0" plugin-api-version="@PLUGIN_API_VERSION@" jips-version="@JIPS_VERSION@">
+  <name>maskprocess</name>
+  <defaults>
+  		<default id="swapRB" value="true" />
+		<default id="swapGB" value="false" />
+		<default id="swapRG" value="false" />
+  </defaults>
+  <inputmask>
+    <input type="label" translate="false" bounds="0,0,2,1" id="label1">
+      <text>Name:</text>
+    </input>
+    <input type="textfield" translate="false" bounds="2,0,4,1" id="name">
+      <text>default</text>
+      <length>15</length>
+      <inputType>string</inputType>
+    </input>
+    <input type="label" translate="false" bounds="0,1,6,1" id="label4">
+		<text>Choose Direction:</text>
+	</input>
+	<input type="radiobutton" translate="false" bounds="0,2,3,1" id="swapRB">
+		<text>Swap Red/Blue</text>
+		<group>bg1</group>
+	</input>
+	<input type="radiobutton" translate="false" bounds="0,3,3,1" id="swapGB">
+		<text>Swap Green/Blue</text>
+		<group>bg1</group>
+	</input>
+	<input type="radiobutton" translate="false" bounds="0,4,3,1" id="swapRG">
+		<text>Swap Red/Green</text>
+		<group>bg1</group>
+	</input>
+  </inputmask>
+</process>
