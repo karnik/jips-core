@@ -13,25 +13,35 @@ import de.karnik.jips.common.JIPSException;
 import de.karnik.jips.processing.BaseConnection;
 import de.karnik.jips.processing.BaseConnector;
 import de.karnik.jips.processing.BaseProcess;
+import lombok.Getter;
+import lombok.Setter;
 
 public class JIPSProjectDataModel {
 
   /**
    * The internal project id.
    */
+  @Getter
+  @Setter
   private String projectID;
 
   /**
    * The name of the project.
    */
+  @Getter
+  @Setter
   private String projectName;
 
   /**
    * The description of the project.
    */
+  @Getter
+  @Setter
   private String projectDescription;
 
+  @Getter
   private JIPSObjectList<BaseProcess> processes = new JIPSObjectList<BaseProcess>();
+  @Getter
   private JIPSObjectList<BaseConnection> connections = new JIPSObjectList<BaseConnection>();
 
   public void addBaseConnection(BaseConnection bc) {
@@ -70,13 +80,24 @@ public class JIPSProjectDataModel {
     return null;
   }
 
+  public boolean isEverythingConnected() {
+    for (BaseProcess bp : processes) {
+      for (BaseConnector bc : bp.getBaseConnectors()) {
+        if (!bc.isConnected())
+          return false;
+      }
+    }
+
+    return true;
+  }
+
   public JIPSObjectList<BaseConnector> getConnectedConnectors(String connectorID) {
 
     JIPSObjectList<BaseConnector> bc = new JIPSObjectList<BaseConnector>();
 
-    for (int i = 0; i < connections.size(); i++) {
-      String input = connections.get(i).getBaseInputConnectorID();
-      String output = connections.get(i).getBaseOutputConnectorID();
+    for (BaseConnection connection : connections) {
+      String input = connection.getBaseInputConnectorID();
+      String output = connection.getBaseOutputConnectorID();
 
       if (input.equals(connectorID))
         bc.add(getBaseConnector(output));
@@ -127,9 +148,9 @@ public class JIPSProjectDataModel {
   public JIPSObjectList<BaseProcess> getSelectedProcesses() throws JIPSException {
     JIPSObjectList<BaseProcess> selected = new JIPSObjectList<BaseProcess>();
 
-    for (int i = 0; i < processes.size(); i++) {
-      if (processes.get(i).getUI().isSelected())
-        selected.add(processes.get(i));
+    for (BaseProcess process : processes) {
+      if (process.getUI().isSelected())
+        selected.add(process);
     }
 
     return selected;
@@ -139,27 +160,4 @@ public class JIPSProjectDataModel {
     return processes.size();
   }
 
-  public String getProjectName() {
-    return projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public String getProjectDescription() {
-    return projectDescription;
-  }
-
-  public void setProjectDescription(String projectDescription) {
-    this.projectDescription = projectDescription;
-  }
-
-  public String getProjectID() {
-    return projectID;
-  }
-
-  public void setProjectID(String projectID) {
-    this.projectID = projectID;
-  }
 }

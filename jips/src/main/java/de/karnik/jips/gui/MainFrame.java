@@ -316,6 +316,7 @@ public class MainFrame extends BaseFrame implements ActionListener, ComponentLis
             		runMenuBar.getMenuBarItem( "project_stop" ).setEnabled( true );
             	
             	getSelectedProject().runProcesses();
+
             }
 
             // pause all processes

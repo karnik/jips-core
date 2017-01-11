@@ -14,6 +14,7 @@ import de.karnik.jips.common.JIPSMessage;
 import de.karnik.jips.common.ProjectListener;
 import de.karnik.jips.common.config.JIPSVariables;
 import de.karnik.jips.common.lang.Translator;
+import de.karnik.jips.common.processing.InputProcess;
 import de.karnik.jips.common.processing.JIPSObject;
 import de.karnik.jips.gui.MainFrame;
 import de.karnik.jips.gui.desk.MainDesktop;
@@ -130,27 +131,38 @@ public class JIPSProject implements ProjectListener, ProjectUIListener, JIPSObje
   }
 
   public void runProcesses() throws JIPSException {
-      /*
-      int connects = 0;
-    	for( int i = 0; i < connectors.size(); i++ ) {
-    		if( connectors.get( i ).isConnected() )
-    			connects++;
-    	}
-    	
-    	if( connects == connectors.size() ) {
 
-    		for( int i = 0; i < processes.size(); i++ ) {
-    			BaseProcess bp = processes.get( i );
-    			if( bp.isReady() )
-    				bp.run();
-    		}
-    	} else {
-            MsgHandler.consoleMSG( 
-            		new JIPSMessage( 
-            				JIPSMessage.ERROR, "Connect all connectors..." , ""), 
-            				false );
-    	}*/
+    if (!getJIPSProjectDataModel().isEverythingConnected()) {
+      MsgHandler.consoleMSG(
+              new JIPSMessage(
+                      JIPSMessage.ERROR, "Connect all connectors...", ""),
+              false);
+      return;
+    }
 
+    int readyCount = 0;
+    JIPSObjectList<BaseProcess> processes = getJIPSProjectDataModel().getProcesses();
+
+
+    // first run all inputs
+    for (BaseProcess bp : processes) {
+      if (bp instanceof InputProcess) {
+        bp.run();
+        readyCount++;
+      }
+    }
+
+    while (processes.size() > readyCount) {
+
+      for (BaseProcess bp : processes) {
+        if (bp.isReady()) {
+          bp.run();
+          readyCount++;
+        }
+      }
+    }
+
+    // TODO: callback
   }
 
   public void pauseProcesses() {

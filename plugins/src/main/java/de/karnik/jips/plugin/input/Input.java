@@ -11,6 +11,7 @@ package de.karnik.jips.plugin.input;
 
 import de.karnik.jips.common.ImageStorage;
 import de.karnik.jips.common.JIPSException;
+import de.karnik.jips.common.processing.InputProcess;
 import de.karnik.jips.common.processing.JIPSProcess;
 import org.w3c.dom.Node;
 
@@ -31,7 +32,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Iterator;
 
-public class Input extends JIPSProcess {
+public class Input extends JIPSProcess implements InputProcess {
 
   public static final String OUTPUT_0 = "out0";
 
